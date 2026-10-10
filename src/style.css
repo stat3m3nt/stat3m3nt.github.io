@@ -1,0 +1,723 @@
+/* ==========================================================
+   Andrew Evboifo, portfolio
+   Theme: engineering drawing sheet
+   Palette: drafting paper, ink navy, blueprint blue,
+            construction-line grey-blue, hi-vis yellow
+   Type: Archivo (headings, labels) + Source Serif 4 (body)
+   ========================================================== */
+
+:root {
+  --paper: #EEF3F6;
+  --sheet: #F8FAFB;
+  --ink: #13253B;
+  --muted: #455A70;
+  --blue: #1D4F91;
+  --line: #9DB4C8;
+  --grid: rgba(29, 79, 145, 0.08);
+  --hivis: #F4C20D;
+
+  --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --wrap: 1120px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; }
+
+a {
+  color: var(--blue);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display);
+  font-weight: 600;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Assignment notice ---------- */
+.notice {
+  padding: 0.65rem 1rem;
+  background: var(--hivis);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+.notice a { color: var(--ink); font-weight: 700; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 3.75rem;
+}
+
+.brand {
+  flex-shrink: 0;
+  color: var(--ink);
+  font-family: var(--display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-list::-webkit-scrollbar { display: none; }
+
+.nav-list a {
+  display: block;
+  padding: 1.1rem 0.7rem 0.95rem;
+  border-bottom: 4px solid transparent;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-list a:hover { border-bottom-color: var(--line); }
+.nav-list a[aria-current="true"] { border-bottom-color: var(--hivis); }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  padding-block: 4.5rem 5.5rem;
+}
+
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+.h1-line { display: block; }
+
+.lede {
+  max-width: 34em;
+  margin: 0 0 2rem;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border: 2px solid var(--ink);
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--blue); border-color: var(--blue); }
+.btn-secondary { background: transparent; color: var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: var(--paper); }
+
+/* Truss figure */
+.hero-figure { margin: 0; }
+
+.truss { display: block; width: 100%; height: auto; }
+
+.truss .member path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.truss .support path,
+.truss .support circle {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.truss .joint circle {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.truss .truss-label text {
+  fill: var(--ink);
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+}
+.truss .dimension path {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.truss .dimension text {
+  fill: var(--muted);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* One orchestrated moment: the truss draws itself on load */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.9s ease-out forwards;
+  animation-delay: var(--d, 0s);
+}
+.pop {
+  opacity: 0;
+  animation: pop 0.4s ease-out forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop  { to { opacity: 1; } }
+
+/* ---------- Sheets (content sections) ---------- */
+.sheet {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  padding-block: 4rem 4.5rem;
+  border-top: 2px solid var(--ink);
+}
+
+.sheet-head h2 {
+  position: sticky;
+  top: 6rem;
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+  line-height: 1.05;
+}
+.sheet-head h2::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.5rem;
+  margin-bottom: 0.9rem;
+  background: var(--hivis);
+}
+
+.sheet-body { min-width: 0; }
+
+.prose {
+  max-width: 38em;
+  margin: 0 0 1.2rem;
+}
+.lead-prose { font-size: 1.3rem; line-height: 1.6; }
+.small-note { margin-top: 1.5rem; color: var(--muted); font-size: 1rem; }
+
+/* Summary facts */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 2.5rem 0 0;
+  border-top: 2px solid var(--ink);
+}
+.facts > div {
+  padding: 1rem 1.25rem 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts dt {
+  font-family: var(--display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.facts dd {
+  margin: 0.15rem 0 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Education */
+.entry {
+  margin-bottom: 2.25rem;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--blue);
+}
+.entry:last-child { margin-bottom: 0; }
+.entry h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 105%;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.25;
+}
+.entry-meta {
+  margin: 0.3rem 0 0.8rem;
+  font-family: var(--display);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.entry .prose { margin-bottom: 0; }
+
+/* Skills schedule */
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+}
+.schedule thead th {
+  padding: 0.8rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: left;
+}
+.schedule tbody th,
+.schedule tbody td {
+  padding: 0.85rem 1rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+.schedule tbody th {
+  width: 11.5rem;
+  border-right: 1px solid var(--line);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* Projects */
+.status {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.15rem 0.65rem;
+  background: var(--hivis);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+.status-plain {
+  background: transparent;
+  border: 1px solid var(--ink);
+}
+
+.points {
+  margin: 0 0 1.25rem;
+  padding-left: 1.2rem;
+}
+.points li { margin-bottom: 0.4rem; }
+.points li::marker { color: var(--blue); }
+
+.tags { margin-bottom: 1.25rem; }
+
+.project-lead {
+  margin-bottom: 3rem;
+  padding: 2.25rem;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--line);
+}
+.project-lead h3 {
+  margin: 0 0 0.8rem;
+  font-family: var(--display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.1;
+}
+.project-lead .prose { max-width: none; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--sheet);
+  border: 1px solid var(--ink);
+}
+.project h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--display);
+  font-stretch: 108%;
+  font-weight: 800;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+.project p { margin: 0 0 1rem; font-size: 1rem; line-height: 1.6; }
+.project .points { font-size: 1rem; }
+.project .tags { margin-top: auto; margin-bottom: 0; }
+
+/* Resume */
+.resume-actions { margin-bottom: 1.5rem; }
+
+.resume-paper {
+  padding: 2.5rem;
+  background: #fff;
+  border: 1px solid var(--ink);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.resume-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 4px solid var(--ink);
+}
+.resume-name {
+  margin: 0;
+  font-family: var(--display);
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+.resume-contact {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: right;
+}
+.resume-paper h4 {
+  margin: 1.75rem 0 0.6rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--display);
+  font-stretch: 108%;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.resume-paper p { margin: 0 0 0.5rem; }
+.resume-paper ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+.resume-item { margin-bottom: 0.9rem; }
+.resume-role {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+}
+.resume-where {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Contact: title block */
+.titleblock {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 2.25rem;
+  background: var(--sheet);
+  border: 3px solid var(--ink);
+}
+.cell {
+  position: relative;
+  min-width: 0;
+  padding: 0.9rem 1.1rem 1rem;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.cell-2 { grid-column: span 2; }
+.cell-3 { grid-column: span 3; }
+.cell-6 { grid-column: span 6; }
+.cell-2:nth-child(3n),
+.cell-3:nth-child(even),
+.cell-6 { border-right: 0; }
+.cell-6 { border-bottom: 0; }
+
+.cell-label {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--muted);
+}
+.cell-value {
+  margin: 0.1rem 0 0;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.cell-value a { color: var(--blue); }
+
+.cell-status { background: var(--hivis); }
+.cell-status .cell-label { color: var(--ink); }
+.cell-status .cell-value { font-size: 1.35rem; }
+
+.copy-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.copy-btn:hover { background: var(--ink); color: var(--paper); }
+
+/* Project filters, links and order-flow diagram */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.filter {
+  padding: 0.45rem 1.1rem;
+  border: 2px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.filter:hover { background: var(--sheet); }
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+.project .links { margin-top: auto; padding-top: 1.1rem; }
+.project .tags { margin-top: 0; margin-bottom: 0; }
+.btn-small { padding: 0.5rem 1rem; font-size: 0.92rem; }
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+  margin: 1.5rem 0 1.75rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.flow li {
+  position: relative;
+  padding: 0.8rem 0.8rem 0.9rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--display);
+  line-height: 1.3;
+  counter-increment: step;
+}
+.flow li::before {
+  content: counter(step);
+  display: inline-block;
+  min-width: 1.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0 0.3rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+.flow li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -1.1rem;
+  width: 1.1rem;
+  border-top: 2px solid var(--blue);
+}
+.flow strong { display: block; font-size: 0.95rem; }
+.flow span { display: block; margin-top: 0.15rem; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding-block: 1.75rem;
+  border-top: 2px solid var(--ink);
+  background: var(--sheet);
+  font-family: var(--display);
+  font-size: 0.95rem;
+}
+.site-footer p { margin: 0; color: var(--muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-block: 3rem 4rem;
+  }
+  .hero-figure { max-width: 520px; }
+
+  .sheet {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-block: 3rem 3.5rem;
+  }
+  .sheet-head h2 { position: static; }
+}
+
+@media (max-width: 720px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 0; }
+  .brand { padding-top: 0.7rem; }
+  .site-header nav { width: 100%; min-width: 0; }
+  .nav-list { max-width: 100%; }
+  .nav-list a { padding-block: 0.6rem 0.5rem; }
+
+  .project-lead { padding: 1.4rem; box-shadow: 5px 5px 0 var(--line); }
+  .flow { grid-template-columns: 1fr; gap: 0.9rem; }
+  .flow li:not(:last-child)::after {
+    top: auto; bottom: -0.9rem; right: auto; left: 1.2rem;
+    width: 0; height: 0.9rem; border-top: 0; border-left: 2px solid var(--blue);
+  }
+  .resume-paper { padding: 1.5rem; }
+  .resume-contact { text-align: left; }
+
+  /* Skills table collapses into stacked rows */
+  .schedule, .schedule tbody, .schedule tr, .schedule th, .schedule td { display: block; width: 100%; }
+  .schedule thead { position: absolute; left: -9999px; }
+  .schedule tbody th { border-right: 0; padding-bottom: 0; background: var(--paper); }
+  .schedule tbody td { border-top: 0; padding-top: 0.4rem; background: var(--paper); }
+  .schedule tbody tr + tr th { border-top: 2px solid var(--ink); }
+
+  /* Title block becomes one column */
+  .titleblock { grid-template-columns: 1fr; }
+  .cell-2, .cell-3, .cell-6 { grid-column: auto; border-right: 0; }
+  .cell-6 { border-bottom: 0; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .draw { animation: none; stroke-dashoffset: 0; }
+  .pop { animation: none; opacity: 1; }
+  .btn, .copy-btn, .filter { transition: none; }
+}
+
+/* ---------- Print: only the resume ---------- */
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .no-print,
+  .hero,
+  .sheet:not(#resume),
+  .site-header,
+  .site-footer { display: none !important; }
+
+  #resume { display: block; padding: 0; border: 0; }
+  #resume .sheet-head { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .resume-paper { border: 0; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+}
