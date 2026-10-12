@@ -44,7 +44,7 @@ export const skills = [
 export const leadProject = {
   category: "Full-stack",
   status: "Live, built for a client",
-  title: "MFG: Mama's Fried Goods",
+  title: "MFG: Mac's Fried Goods",
   text: "A full-stack food delivery platform for a real London food business specialising in Nigerian cuisine and comfort food. Customers browse a rotating menu, add items to a cart and pay online. The owner manages the menu through Sanity CMS without needing any code changes.",
   points: [
     "CMS-driven rotating menu: the owner publishes dishes and the site updates within 60 seconds",
