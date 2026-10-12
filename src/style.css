@@ -89,19 +89,6 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .skip-link:focus { top: 1rem; }
 
-/* ---------- Assignment notice ---------- */
-.notice {
-  padding: 0.65rem 1rem;
-  background: var(--hivis);
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.4;
-  text-align: center;
-}
-.notice a { color: var(--ink); font-weight: 700; }
-
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -644,14 +631,87 @@ a:hover { text-decoration-thickness: 2px; }
 .flow span { display: block; margin-top: 0.15rem; font-size: 0.85rem; color: var(--muted); }
 
 /* ---------- Footer ---------- */
+/* ---------- Footer ---------- */
 .site-footer {
-  padding-block: 1.75rem;
-  border-top: 2px solid var(--ink);
-  background: var(--sheet);
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 6px solid var(--hivis);
   font-family: var(--display);
   font-size: 0.95rem;
 }
-.site-footer p { margin: 0; color: var(--muted); }
+.site-footer :focus-visible { outline-color: var(--hivis); }
+.site-footer p { margin: 0; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem 3rem;
+  padding-block: 3rem 2.5rem;
+}
+
+.footer-name {
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+.footer-role {
+  margin-top: 0.35rem !important;
+  color: var(--hivis);
+  font-weight: 700;
+}
+.footer-note {
+  max-width: 30ch;
+  margin-top: 0.9rem !important;
+  color: var(--line);
+  line-height: 1.5;
+}
+
+.footer-label {
+  margin-bottom: 0.9rem !important;
+  color: var(--line);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer-col ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer a {
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--hivis);
+  border-bottom-color: var(--hivis);
+}
+
+.footer-base {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.1rem 1.5rem;
+  border-top: 1px solid rgba(157, 180, 200, 0.35);
+  color: var(--line);
+  font-size: 0.88rem;
+}
+.footer-base p { color: var(--line); }
+
+@media (max-width: 720px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; padding-block: 2.25rem 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {

@@ -151,26 +151,27 @@ function Summary() {
   return (
     <Sheet id="summary" title="Summary">
       <p className="prose lead-prose">
-        I'm a full-stack developer in the Software Development co-op program at
-        Mohawk College, graduating in 2027. I build production web apps with
-        Next.js, TypeScript and Supabase, and I'm currently designing a
+        I'm a full-stack developer graduating from the Software Development
+        co-op program at Mohawk College in December 2026. I build production web
+        apps with Next.js, TypeScript and Supabase, and I'm currently designing a
         multi-tenant property management platform on ASP.NET Core.
       </p>
       <p className="prose">
         I came to software from civil engineering, where the habits that matter
         most (checking assumptions, documenting decisions, planning for failure)
         transfer directly to code. I've shipped a live ordering platform for a
-        real client, completed internships at Digitate and Tap N' Care, and take
-        on freelance web projects for local businesses.
+        paying client, worked as a software developer intern on Digitate's ignio
+        AIOps platform, and built production React interfaces as a contract
+        frontend developer at Tap N' Care.
       </p>
       <p className="prose">
-        I'm looking for a co-op, internship or junior developer role where I can
-        keep shipping and keep learning from a team.
+        I'm looking for a junior or full-time software developer role where I
+        can contribute production-ready code and keep learning from a team.
       </p>
       <dl className="facts">
         <div><dt>Based in</dt><dd>Hamilton and St. Catharines, Ontario</dd></div>
-        <div><dt>Graduating</dt><dd>2027, Mohawk College</dd></div>
-        <div><dt>Looking for</dt><dd>Co-op, internship and junior developer roles</dd></div>
+        <div><dt>Graduating</dt><dd>December 2026, Mohawk College</dd></div>
+        <div><dt>Looking for</dt><dd>Junior and full-time software developer roles</dd></div>
       </dl>
     </Sheet>
   );
@@ -293,6 +294,53 @@ function Projects() {
   );
 }
 
+const experience = [
+  {
+    role: "MFG Food Delivery Platform",
+    org: "Full-Stack Client Project",
+    dates: "May 2026 – Present",
+    bullets: [
+      "Built a full production food delivery platform solo for a paying client using Next.js, TypeScript, Supabase (PostgreSQL), Sanity.io CMS and Stripe, deployed on Vercel.",
+      "Integrated secure checkout, authentication and transactional email workflows, enabling the client to launch on schedule with an end-to-end purchase experience.",
+    ],
+  },
+  {
+    role: "CityFix, Civic Infrastructure Reporter",
+    org: "Mobile/Full-Stack Project",
+    dates: "Feb 2026 – Present",
+    bullets: [
+      "Built a cross-platform mobile app using React Native, TypeScript, Expo Router and the Google Maps API for geo-tagging civic issues with photos and severity ratings.",
+      "Shipped a native Android build end-to-end, from concept through deployment, owning the full development lifecycle.",
+    ],
+  },
+  {
+    role: "Software Developer Intern",
+    org: "Digitate, ignio AIOps (Fortune 500 SaaS)",
+    dates: "Feb 2023 – Dec 2024",
+    bullets: [
+      "Resolved production bugs across a large enterprise codebase serving Fortune 500 clients, improving reliability of the anomaly detection pipeline for on-call engineering teams.",
+      "Optimised SQL queries and built backend scripts that streamlined incident workflows, reducing manual triage overhead and improving response times.",
+      "Took part in agile sprint planning and peer code reviews under senior engineers, building habits around clean, maintainable, production-grade code.",
+    ],
+  },
+  {
+    role: "Frontend Developer (Contract)",
+    org: "Tap N' Care",
+    dates: "Sep 2020 – Dec 2023",
+    bullets: [
+      "Built and shipped production React interfaces from Figma designs for a health app used by real patients and care providers, improving UI consistency across web and mobile.",
+      "Collaborated with iOS and Android teams in agile sprints, helping meet release milestones and reduce cross-platform feature lag.",
+    ],
+  },
+];
+
+const resumeSkills = [
+  ["Languages", "JavaScript, TypeScript, PHP, Java, C#, SQL, HTML, CSS"],
+  ["Frontend", "React, Next.js (App Router), React Native, Tailwind CSS, Bootstrap"],
+  ["Backend & DB", "Node.js, PHP, REST APIs, PostgreSQL, MySQL, Supabase, Authentication"],
+  ["Tools", "Git, GitHub, Vercel, Android Studio, XAMPP, Azure Fundamentals, Agile/Scrum, GitHub Copilot"],
+];
+
 function Resume() {
   return (
     <Sheet id="resume" title="Resume">
@@ -306,60 +354,59 @@ function Resume() {
         <div className="resume-top">
           <h3 className="resume-name">{profile.name}</h3>
           <p className="resume-contact">
-            Hamilton and St. Catharines, Ontario<br />
+            Full-Stack Developer<br />
             {profile.email}<br />
             github.com/stat3m3nt | linkedin.com/in/andrew-evboifo-78a655187
           </p>
         </div>
 
-        <h4>Profile</h4>
+        <h4>Summary</h4>
         <p>
-          Full-stack developer and Mohawk College co-op student with a civil
-          engineering background. Experienced in Next.js, TypeScript, Supabase
-          and ASP.NET Core, with a live client project in production.
+          Full-stack developer seeking a Software Developer role where I can
+          contribute production-ready code and grow alongside senior engineers.
+          I have shipped full-stack web applications across enterprise, startup
+          and freelance environments using JavaScript, TypeScript, React, PHP,
+          Node.js and SQL, and I pick up new frameworks quickly. I am looking
+          for a team where code quality and continuous learning are taken seriously.
         </p>
+
+        <h4>Experience</h4>
+        {experience.map((job) => (
+          <div className="resume-item" key={`${job.role}-${job.org}`}>
+            <div className="resume-row">
+              <p className="resume-role">{job.role} | {job.org}</p>
+              <p className="resume-dates">{job.dates}</p>
+            </div>
+            <ul>
+              {job.bullets.map((b) => <li key={b}>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+
+        <h4>Technical skills</h4>
+        {resumeSkills.map(([group, items]) => (
+          <p className="resume-skill" key={group}>
+            <strong>{group}:</strong> {items}
+          </p>
+        ))}
 
         <h4>Education</h4>
         <div className="resume-item">
-          <p className="resume-role">Computer Systems Technology, Software Development (co-op)</p>
-          <p className="resume-where">Mohawk College. Expected 2027</p>
-        </div>
-        <div className="resume-item">
-          <p className="resume-role">Microsoft Azure Fundamentals</p>
-          <p className="resume-where">Exam in progress</p>
-        </div>
-
-        <h4>Experience</h4>
-        <div className="resume-item">
-          <p className="resume-role">Freelance Web Developer</p>
-          <p className="resume-where">Self-employed</p>
+          <div className="resume-row">
+            <p className="resume-role">Computer Systems Technology, Software Development (co-op) | Mohawk College</p>
+            <p className="resume-dates">Expected December 2026</p>
+          </div>
           <ul>
-            <li>Designed and built a production food delivery platform for a London food business using Next.js, Sanity CMS, Supabase, Stripe and Resend, so the owner updates the menu without code changes.</li>
-            <li>Propose and deliver website redesigns for local Hamilton businesses.</li>
+            <li>Relevant coursework: Data Structures and Algorithms, Object-Oriented Programming, Database Design and SQL, Web Development and Frameworks.</li>
+            <li>Hackathons: Seneca Energy Hackathon (May 2026), Google Cloud Hackathon, NSBEHacks.</li>
           </ul>
         </div>
-        {/* TODO: add dates and 1-2 specific bullets for each internship below */}
         <div className="resume-item">
-          <p className="resume-role">Intern</p>
-          <p className="resume-where">Digitate</p>
+          <div className="resume-row">
+            <p className="resume-role">Civil Engineering | McMaster University</p>
+            <p className="resume-dates">2019 – 2023</p>
+          </div>
         </div>
-        <div className="resume-item">
-          <p className="resume-role">Intern</p>
-          <p className="resume-where">Tap N' Care</p>
-        </div>
-
-        <h4>Selected projects</h4>
-        <ul>
-          <li><strong>MFG (Mac's Fried Goods):</strong> live full-stack ordering platform with a Sanity CMS menu, Stripe webhooks, PostgreSQL and Resend emails.</li>
-          <li><strong>PropertyOS:</strong> multi-tenant property management SaaS with a 62-table PostgreSQL schema and ASP.NET Core 9 API.</li>
-          <li><strong>CityFix:</strong> React Native and Expo app for reporting municipal infrastructure issues with GPS, photos and a live map.</li>
-        </ul>
-
-        <h4>Technical skills</h4>
-        <p>
-          Next.js, React, TypeScript, React Native, Expo, ASP.NET Core, C#, Java, Python,
-          PostgreSQL, MySQL, SQL Server, Supabase, Stripe, Sanity CMS, Git, Vercel.
-        </p>
       </div>
     </Sheet>
   );
@@ -390,7 +437,7 @@ function Contact() {
         <div className="cell cell-2"><p className="cell-label">Location</p><p className="cell-value">Hamilton and St. Catharines, Ontario</p></div>
         <div className="cell cell-2"><p className="cell-label">Revision</p><p className="cell-value">October 2026</p></div>
 
-        <div className="cell cell-3">
+        <div className="cell cell-2">
           <p className="cell-label">Email</p>
           <p className="cell-value"><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
           <button className="copy-btn no-print" type="button" onClick={copyEmail}>
@@ -400,23 +447,17 @@ function Contact() {
             {copied === "Copied" ? "Email address copied to clipboard" : ""}
           </span>
         </div>
-        <div className="cell cell-3">
+        <div className="cell cell-2">
           <p className="cell-label">GitHub</p>
           <p className="cell-value">
             <a href={profile.github} target="_blank" rel="noopener noreferrer">github.com/stat3m3nt</a>
           </p>
         </div>
 
-        <div className="cell cell-3">
+        <div className="cell cell-2">
           <p className="cell-label">LinkedIn</p>
           <p className="cell-value">
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/andrew-evboifo</a>
-          </p>
-        </div>
-        <div className="cell cell-3">
-          <p className="cell-label">Portfolio</p>
-          <p className="cell-value">
-            <a href={profile.oldPortfolio} target="_blank" rel="noopener noreferrer">stat3m3nts-portfolio.netlify.app</a>
           </p>
         </div>
 
@@ -432,13 +473,36 @@ function Contact() {
 function Footer() {
   return (
     <footer className="site-footer no-print">
-      <div className="wrap footer-inner">
+      <div className="wrap footer-grid">
+        <div className="footer-brand">
+          <p className="footer-name">{profile.name}</p>
+          <p className="footer-role">Full-stack developer</p>
+          <p className="footer-note">Open to junior and full-time software developer roles.</p>
+        </div>
+
+        <nav className="footer-col" aria-label="Footer">
+          <p className="footer-label">Sections</p>
+          <ul>
+            {nav.map(([id, label]) => (
+              <li key={id}><a href={`#${id}`}>{label}</a></li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="footer-col">
+          <p className="footer-label">Connect</p>
+          <ul>
+            <li><a href={`mailto:${profile.email}`}>Email</a></li>
+            <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="wrap footer-base">
         <p>&copy; {new Date().getFullYear()} {profile.name}</p>
-        <ul className="footer-links">
-          <li><a href={`mailto:${profile.email}`}>Email</a></li>
-          <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
+        <p>Built with React and Vite</p>
+        <a href="#top">Back to top &uarr;</a>
       </div>
     </footer>
   );
