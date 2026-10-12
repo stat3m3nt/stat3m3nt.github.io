@@ -44,17 +44,6 @@ function useActiveSection(ids) {
   return active;
 }
 
-/* ---------- page chrome ---------- */
-
-function Notice() {
-  return (
-    <div className="notice no-print" role="note">
-      This site is a blueprint for an updated version of my current portfolio, created for a course assignment. You can view my current portfolio at{" "}
-      <a href={profile.oldPortfolio}>stat3m3nts-portfolio.netlify.app</a>.
-    </div>
-  );
-}
-
 const navIds = nav.map(([id]) => id);
 
 function Header() {
@@ -361,7 +350,7 @@ function Resume() {
 
         <h4>Selected projects</h4>
         <ul>
-          <li><strong>MFG (Mama's Fried Goods):</strong> live full-stack ordering platform with a Sanity CMS menu, Stripe webhooks, PostgreSQL and Resend emails.</li>
+          <li><strong>MFG (Mac's Fried Goods):</strong> live full-stack ordering platform with a Sanity CMS menu, Stripe webhooks, PostgreSQL and Resend emails.</li>
           <li><strong>PropertyOS:</strong> multi-tenant property management SaaS with a 62-table PostgreSQL schema and ASP.NET Core 9 API.</li>
           <li><strong>CityFix:</strong> React Native and Expo app for reporting municipal infrastructure issues with GPS, photos and a live map.</li>
         </ul>
@@ -443,8 +432,13 @@ function Contact() {
 function Footer() {
   return (
     <footer className="site-footer no-print">
-      <div className="wrap">
-        <p>Created for a course assignment. Source code is on <a href={profile.github}>GitHub</a>.</p>
+      <div className="wrap footer-inner">
+        <p>&copy; {new Date().getFullYear()} {profile.name}</p>
+        <ul className="footer-links">
+          <li><a href={`mailto:${profile.email}`}>Email</a></li>
+          <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
       </div>
     </footer>
   );
@@ -454,7 +448,6 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <Notice />
       <Header />
       <main id="main">
         <Hero />
