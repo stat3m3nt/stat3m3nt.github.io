@@ -152,7 +152,7 @@ function Summary() {
     <Sheet id="summary" title="Summary">
       <p className="prose lead-prose">
         I'm a full-stack developer graduating from the Software Development
-        co-op program at Mohawk College in December 2026. I build production web
+        co-op program at Mohawk College in February 2027. I build production web
         apps with Next.js, TypeScript and Supabase, and I'm currently designing a
         multi-tenant property management platform on ASP.NET Core.
       </p>
@@ -170,7 +170,7 @@ function Summary() {
       </p>
       <dl className="facts">
         <div><dt>Based in</dt><dd>Hamilton and St. Catharines, Ontario</dd></div>
-        <div><dt>Graduating</dt><dd>December 2026, Mohawk College</dd></div>
+        <div><dt>Graduating</dt><dd>February 2027, Mohawk College</dd></div>
         <div><dt>Looking for</dt><dd>Junior and full-time software developer roles</dd></div>
       </dl>
     </Sheet>
@@ -316,7 +316,7 @@ const experience = [
   {
     role: "Software Developer Intern",
     org: "Digitate, ignio AIOps (Fortune 500 SaaS)",
-    dates: "Feb 2023 – Dec 2024",
+    dates: "May 2023 – Aug 2023",
     bullets: [
       "Resolved production bugs across a large enterprise codebase serving Fortune 500 clients, improving reliability of the anomaly detection pipeline for on-call engineering teams.",
       "Optimised SQL queries and built backend scripts that streamlined incident workflows, reducing manual triage overhead and improving response times.",
@@ -326,7 +326,7 @@ const experience = [
   {
     role: "Frontend Developer (Contract)",
     org: "Tap N' Care",
-    dates: "Sep 2020 – Dec 2023",
+    dates: "Sep 2021 – Jan 2022",
     bullets: [
       "Built and shipped production React interfaces from Figma designs for a health app used by real patients and care providers, improving UI consistency across web and mobile.",
       "Collaborated with iOS and Android teams in agile sprints, helping meet release milestones and reduce cross-platform feature lag.",
