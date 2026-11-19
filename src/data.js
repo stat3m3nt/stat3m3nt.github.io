@@ -77,6 +77,7 @@ export const projects = [
       "ASP.NET Core 9 backend in Clean Architecture layers",
     ],
     tags: ["ASP.NET Core", "EF Core", "Next.js", "Supabase", "Stripe"],
+    repo: "https://github.com/stat3m3nt/property-os",
   },
   {
     category: "Mobile",
